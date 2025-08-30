@@ -1,0 +1,187 @@
+﻿<Window x:Class="WpfApp1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="מערכת ניהול קורסים IPI"
+        Height="900" Width="900"
+        FlowDirection="RightToLeft"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="SingleBorderWindow">
+
+    <Window.Resources>
+        <Style TargetType="TextBox">
+            <Setter Property="Height" Value="25"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+        </Style>
+        <Style TargetType="ComboBox">
+            <Setter Property="Height" Value="25"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+        </Style>
+        <Style TargetType="CheckBox">
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+        <Style TargetType="Label">
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Padding" Value="10,5"/>
+        </Style>
+    </Window.Resources>
+
+    <DockPanel>
+        <!-- Menu Bar -->
+        <Menu DockPanel.Dock="Top" Background="LightGray">
+            <MenuItem Header="פרויקט">
+                <MenuItem Header="חדש" Click="New_Click"/>
+                <MenuItem Header="פתח" Click="Open_Click"/>
+                <MenuItem Header="שמור" Click="Save_Click"/>
+                <Separator/>
+                <MenuItem Header="יציאה" Click="Exit_Click"/>
+            </MenuItem>
+            <MenuItem Header="טעינת נתונים"/>
+            <MenuItem Header="כלים"/>
+            <MenuItem Header="עזרה"/>
+        </Menu>
+
+        <!-- Main Content -->
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+            <Grid Margin="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Border BorderBrush="Gray" BorderThickness="1" Padding="15">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <!-- Left Panel -->
+                        <StackPanel Grid.Column="0">
+                            <!-- Logo -->
+                            <Border Width="100" Height="100" Background="Red" Margin="10" HorizontalAlignment="Left">
+                                <TextBlock Text="IPI" FontSize="40" FontWeight="Bold" Foreground="White"
+                                           VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            </Border>
+
+                            <!-- רישום -->
+                            <StackPanel>
+                                <Label Content="קוד סכמת רישום:"/>
+                                <ComboBox Width="150"/>
+                            </StackPanel>
+
+                            <!-- ספרייה -->
+                            <StackPanel>
+                                <Label Content="בחר סוג ספרייה:"/>
+                                <ComboBox Width="150"/>
+                            </StackPanel>
+
+                            <!-- קובץ -->
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                <Label Content="הפנייה לקובץ:"/>
+                                <Button Content="בחר" Width="60"/>
+                                <CheckBox Margin="10,0,0,0"/>
+                            </StackPanel>
+
+                            <!-- סוג צוות -->
+                            <StackPanel>
+                                <Label Content="סוג צוות:"/>
+                                <ComboBox Width="150"/>
+                            </StackPanel>
+
+                            <!-- חברי צוות -->
+                            <Label Content="חברי צוות:" Margin="10,10,5,5"/>
+                            <ItemsControl>
+                                <ItemsControl.Items>
+                                    <StackPanel Orientation="Horizontal">
+                                        <ComboBox Width="80"/>
+                                        <TextBox Width="150"/>
+                                        <CheckBox/>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <ComboBox Width="80"/>
+                                        <TextBox Width="150"/>
+                                        <CheckBox/>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <ComboBox Width="80"/>
+                                        <TextBox Width="150"/>
+                                        <CheckBox/>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <ComboBox Width="80"/>
+                                        <TextBox Width="150"/>
+                                        <CheckBox/>
+                                    </StackPanel>
+                                </ItemsControl.Items>
+                            </ItemsControl>
+
+                            <!-- כפתור תיק -->
+                            <Button Content="בחירת תיק מרכיבים" Width="150" HorizontalAlignment="Center" Margin="10"/>
+                        </StackPanel>
+
+                        <!-- Right Panel -->
+                        <StackPanel Grid.Column="1">
+                            <Label Content="שם הקורס:"/>
+                            <TextBox/>
+
+                            <Label Content="שם התוכנית:"/>
+                            <TextBox/>
+
+                            <Label Content="מס' התוכנית:"/>
+                            <TextBox Width="100"/>
+
+                            <Label Content="תאריך התחלה:"/>
+                            <StackPanel Orientation="Horizontal">
+                                <ComboBox Width="80" Text="2025"/>
+                                <ComboBox Width="80" Text="מאי"/>
+                                <ComboBox Width="80" Text="יום א'"/>
+                            </StackPanel>
+
+                            <Label Content="תאריך סיום:"/>
+                            <StackPanel Orientation="Horizontal">
+                                <ComboBox Width="80" Text="2025"/>
+                                <ComboBox Width="80" Text="מאי"/>
+                                <ComboBox Width="80" Text="יום א'"/>
+                            </StackPanel>
+
+                            <Label Content="שעת התחלה:"/>
+                            <TextBox Width="80" Text="--:--"/>
+
+                            <Label Content="שעת סיום:"/>
+                            <TextBox Width="80" Text="--:--"/>
+
+                            <Label Content="יום שבועי:"/>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBox Width="80" Text="--:--"/>
+                                <TextBox Width="150" Text="שעות ספרייה:"/>
+                            </StackPanel>
+
+                            <CheckBox Content="ספרייה מופעלת" Margin="5,10,5,0"/>
+
+                            <Label Content="שעת התחלה:"/>
+                            <TextBox Width="80" Text="--:--"/>
+
+                            <Label Content="שעת סיום:"/>
+                            <TextBox Width="80" Text="--:--"/>
+                        </StackPanel>
+                    </Grid>
+                </Border>
+
+                <!-- Bottom Button -->
+                <Button Grid.Row="1" Content="יציאה" Width="100" HorizontalAlignment="Left" Margin="10"/>
+            </Grid>
+        </ScrollViewer>
+    </DockPanel>
+</Window>

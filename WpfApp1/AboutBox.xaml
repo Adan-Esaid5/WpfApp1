@@ -1,0 +1,77 @@
+﻿<Window x:Class="WpfApp1.AboutBox"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="AboutBox1" Height="400" Width="600"
+        WindowStyle="SingleBorderWindow"
+        ResizeMode="NoResize"
+        Background="#E8EEF4">
+
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Main Content -->
+        <Border Grid.Row="0" BorderBrush="#AAAAAA" BorderThickness="1">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Left Side - Information -->
+                <Grid Grid.Column="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <!-- Top Information Section -->
+                    <Border Grid.Row="0" BorderBrush="#AAAAAA" BorderThickness="0,0,0,1" Padding="10">
+                        <StackPanel FlowDirection="RightToLeft">
+                            <TextBlock Text="מערכת ניהול נתוני מפקד תנועה" FontSize="14" FontWeight="Bold" 
+                                       HorizontalAlignment="Center" Margin="0,5,0,10"/>
+                            <TextBlock Text="November 2009 1.0" HorizontalAlignment="Center" Margin="0,5,0,5"/>
+                            <TextBlock Text="Copyright ©" HorizontalAlignment="Center" Margin="0,5,0,5"/>
+                            <TextBlock Text="IPI Israel LTD" HorizontalAlignment="Center" Margin="0,5,0,5"/>
+                        </StackPanel>
+                    </Border>
+
+                    <!-- Description Section -->
+                    <Grid Grid.Row="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Grid.Row="0" Text="Description" Margin="10,5,0,5"/>
+
+                        <Border Grid.Row="1" BorderBrush="#AAAAAA" BorderThickness="0,1,0,0" Margin="10,0,10,10">
+                            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                                <TextBox IsReadOnly="True" TextWrapping="Wrap" BorderThickness="0" 
+                                         Background="Transparent" Margin="5">
+                                    <!-- Description text would go here -->
+                                </TextBox>
+                            </ScrollViewer>
+                        </Border>
+                    </Grid>
+                </Grid>
+
+                <!-- Right Side - Image -->
+                <Border Grid.Column="1" BorderBrush="#AAAAAA" BorderThickness="1,0,0,0">
+                    <Image Source="/Resources/traffic-map.png" Stretch="UniformToFill" Width="220"/>
+                    <!-- Note: You'll need to add the traffic map image to your project resources -->
+                </Border>
+            </Grid>
+        </Border>
+
+        <!-- Bottom Button -->
+        <Button Grid.Row="1" Content="OK" Width="70" Height="25" HorizontalAlignment="Left" Margin="10,10,0,0"
+                Click="OkButton_Click"/>
+    </Grid>
+</Window>

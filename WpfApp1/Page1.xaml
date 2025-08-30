@@ -1,0 +1,117 @@
+﻿<Window x:Class="WpfApp1.Page1" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local="clr-namespace:WpfApp1" mc:Ignorable="d" Title="Form1" Height="600" Width="900" FlowDirection="RightToLeft" Background="#F0F0F0">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <!-- الأزرار -->
+            <RowDefinition Height="Auto" MinHeight="270"/>
+            <!-- الفلاتر -->
+            <RowDefinition/>
+            <!-- الداتا غريد -->
+            <RowDefinition Height="Auto"/>
+            <!-- زر سكر و الستاتوس بار -->
+        </Grid.RowDefinitions>
+        <!-- الأزرار -->
+        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,10,0,20" Width="195">
+            <Button Content="יצוא ל-Excel"/>
+            <Button Content="שמור נתונים"/>
+            <Button Content="הצג נתונים" RenderTransformOrigin="1.44,0.964"/>
+        </StackPanel>
+        <!-- قسم الفلاتر -->
+        <Border Grid.Row="1" BorderBrush="#CCCCCC" BorderThickness="1" Background="White" Margin="0,0,0,10">
+            <Grid Margin="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <!-- عنوان -->
+                    <RowDefinition Height="Auto"/>
+                    <!-- تاريخ بداية -->
+                    <RowDefinition Height="Auto"/>
+                    <!-- تاريخ نهاية -->
+                    <RowDefinition Height="Auto"/>
+                    <!-- ساعة بداية -->
+                    <RowDefinition Height="Auto"/>
+                    <!-- ساعة نهاية -->
+                    <RowDefinition Height="Auto"/>
+                    <!-- نوع يوم -->
+                    <RowDefinition Height="Auto"/>
+                    <!-- اتجاه -->
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0" Grid.Column="1" Text="הגדרות" HorizontalAlignment="Right"/>
+                <!-- تاريخ البداية -->
+                <TextBlock Grid.Row="1" Grid.Column="0" Text="תאריך התחלה:" />
+                <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
+                    <ComboBox Width="80">
+                        <ComboBoxItem Content="2025"/>
+                        <ComboBoxItem Content="2024"/>
+                    </ComboBox>
+                    <ComboBox Width="80">
+                        <ComboBoxItem Content="מאי"/>
+                        <ComboBoxItem Content="יוני"/>
+                    </ComboBox>
+                    <ComboBox Width="80">
+                        <ComboBoxItem Content="יום א'"/>
+                        <ComboBoxItem Content="יום ב'"/>
+                    </ComboBox>
+                </StackPanel>
+                <!-- تاريخ النهاية -->
+                <TextBlock Grid.Row="2" Grid.Column="0" Text="תאריך סיום:" Margin="0,6,0,12" Grid.RowSpan="2" />
+                <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
+                    <ComboBox Width="80">
+                        <ComboBoxItem Content="2025"/>
+                        <ComboBoxItem Content="2024"/>
+                    </ComboBox>
+                    <ComboBox Width="80">
+                        <ComboBoxItem Content="מאי"/>
+                        <ComboBoxItem Content="יוני"/>
+                    </ComboBox>
+                    <ComboBox Width="80">
+                        <ComboBoxItem Content="יום א'"/>
+                        <ComboBoxItem Content="יום ב'"/>
+                    </ComboBox>
+                </StackPanel>
+                <!-- ساعة البداية -->
+                <TextBlock Grid.Row="3" Grid.Column="0" Text="שעת התחלה:" Margin="0,12,0,23" Grid.RowSpan="2"/>
+                <TextBox Grid.Row="3" Grid.Column="1" Width="60" Text="--:--" Margin="0,12,712,44" Grid.RowSpan="2" HorizontalAlignment="Right"/>
+                <!-- ساعة النهاية -->
+                <TextBlock Grid.Row="4" Grid.Column="0" Text="שעת סיום:" Margin="0,28,0,27" Grid.RowSpan="2"/>
+                <TextBox Grid.Row="4" Grid.Column="1" Width="60" Text="--:--" Margin="8,28,712,10"/>
+                <!-- نوع اليوم -->
+                <TextBlock Grid.Row="5" Grid.Column="0" Text="יום זמן:" Margin="0,26,0,85" Grid.RowSpan="2"/>
+                <ComboBox Grid.Row="6" Grid.Column="1" Width="100" Margin="6,11,674,78">
+                    <ComboBoxItem Content="בחר..."/>
+                </ComboBox>
+                <!-- الاتجاه -->
+                <TextBlock Grid.Row="6" Grid.Column="0" Text="כיוונים:" Margin="0,10,0,-10"/>
+                <ComboBox Grid.Row="5" Grid.Column="1" Width="100" Height="22" Margin="5,30,675,0" VerticalAlignment="Top">
+                    <ComboBoxItem Content="בחר..."/>
+                </ComboBox>
+            </Grid>
+        </Border>
+        <!-- DataGrid -->
+        <DataGrid Grid.Row="2" AutoGenerateColumns="False" HeadersVisibility="Column" CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" CanUserResizeRows="False" CanUserSortColumns="True" AlternatingRowBackground="#F5F5F5" RowBackground="White" BorderBrush="#AAAAAA" BorderThickness="1" GridLinesVisibility="All">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="שעת התחלה" Width="*" IsReadOnly="True"/>
+                <DataGridTextColumn Header="טור 1" Width="*" IsReadOnly="True"/>
+                <DataGridTextColumn Header="טור 2" Width="*" IsReadOnly="True"/>
+                <DataGridTextColumn Header="טור 3" Width="*" IsReadOnly="True"/>
+                <DataGridTextColumn Header="טור 4" Width="*" IsReadOnly="True"/>
+                <DataGridTextColumn Header="טור 5" Width="*" IsReadOnly="True"/>
+                <DataGridTextColumn Header="טור 6" Width="*" IsReadOnly="True"/>
+                <DataGridTextColumn Header="טור 7" Width="*" IsReadOnly="True"/>
+                <DataGridTextColumn Header="סה&quot;כ" Width="*" IsReadOnly="True"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <!-- سطر الحالة وزر سكر -->
+        <StackPanel Grid.Row="3" Orientation="Horizontal" Margin="0,10,0,0">
+            <StatusBar Background="#E0E0E0" Height="25" Width="750">
+                <TextBlock Text="סה&quot;כ:" Margin="5,0"/>
+            </StatusBar>
+            <Button Content="סגור" Width="80" Margin="10,0,0,0"/>
+        </StackPanel>
+    </Grid>
+</Window>
+
+
